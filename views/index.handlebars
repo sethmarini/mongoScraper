@@ -1,0 +1,48 @@
+<header class="text-center">
+  <span id="main-header">
+    {{!-- <img src="assets/images/fcc-logo.png" alt="freecodecamp" id="fcc-img"> --}}
+    <h1 id="scraper">Tech Crunch Mongo Scraper</h1>
+  </span>
+</header>
+
+
+<div class="text-center" id="scrape-div"> 
+  <form action="/api/scrape" method="GET">
+  <button type="submit" class="btn btn-primary" id="scraper-button" alt="scraper">Update Articles</button>
+  </form>
+</div>
+<div class="container">
+  
+  <div class="panel-group" id="root-div">
+    
+    {{#each article}}
+     
+      <div class="panel panel-default">
+        <div class="panel-heading article-panel">
+          <div class="panel-title">
+            <a href={{this.link}} target="_blank"><h4 id="articleTitle">{{this.title}}</h4></a>
+            <span>{{formatDate this.date}} by {{this.author}}</span>
+          </div>
+          <br>
+          <div>
+          <a data-toggle="collapse" data-parent="#root-div" href='#{{this._id}}'><button class="btn btn-success">Comments</button></a>
+          </div>          
+        </div>
+       
+        <div id={{this._id}} class="panel-collapse collapse">
+          <div class="panel-body">                      
+            {{> comments}}
+          </div>
+        </div>
+      </div>  
+     
+    {{/each}}
+    </div><!-- End panel group-->
+   
+  
+</div><!-- End .container -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy;Seth Marini | <a href="github.com">GitHub Repo</a></p>
+    </div>
+</footer>

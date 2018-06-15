@@ -1,0 +1,40 @@
+<div class="well well-comments">
+  {{#unless this.comments}}
+  <h2>This Article Has No Comments</h2>
+  {{else}}
+  {{#each this.comments}}                      
+    <div class="well" id={{this._id}}well>             
+      <div class="row">                
+        <div class="col-xs-8">
+          <h2><i>{{this.title}}</i></h2>
+          <p>{{this.text}}</p>
+        </div>
+        <div class="col-xs-4">
+          <form class=".comment-well">
+            <input type="hidden" class="articleID" value={{../_id}}>
+            <input type="hidden" class="commentID" value={{this._id}}>
+            <button type="submit" class="btn btn-lg delete-button">
+              <div class="glyphicon glyphicon-trash" aria-hidden="true"></div>
+            </button>
+          </form>
+        </div>
+      </div>  
+    </div>
+  {{/each}}
+  {{/unless}}
+</div>    
+  <div class="row">
+
+    <form action="/api/article/{{this.id}}" method="POST">
+      <div class="col-xs-12">
+       <h3>Leave A Comment</h3>
+        <input name="title" type="text" placeholder="title">
+      </div>
+      <div class="col-xs-12">  
+      <textarea rows="4" cols="50" name="text" placeholder="comment"></textarea>
+      </div>
+      <div class="col-xs-12">
+        <button type="submit">Add Comment</button>
+      </div>
+    </form>
+  </div>  
