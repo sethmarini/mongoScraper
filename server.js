@@ -1,6 +1,6 @@
 const express    = require("express"),
 	  bodyParser = require("body-parser"),
-	  exphbs     = require("express-handlebars"),
+	  exphbs     = require('express3-handlebars'),
 	  logger     = require("morgan"),
 	  mongoose   = require("mongoose"),
 	  app        = express(),
