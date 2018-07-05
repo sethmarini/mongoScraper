@@ -11,11 +11,11 @@ const express    = require("express"),
 
 mongoose.Promise = Promise;
 
-// Express Setup
+// Express setup
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static("public"));
 
-// Express Handlebars Setup
+// Express handlebars setup
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
